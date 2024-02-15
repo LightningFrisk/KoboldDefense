@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34601.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KoboldDefense", "KoboldDefense.csproj", "{C753E90D-E6FE-4D36-8654-ADB4AF7B4B5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C753E90D-E6FE-4D36-8654-ADB4AF7B4B5C}.Debug|x86.ActiveCfg = Debug|x86
+		{C753E90D-E6FE-4D36-8654-ADB4AF7B4B5C}.Debug|x86.Build.0 = Debug|x86
+		{C753E90D-E6FE-4D36-8654-ADB4AF7B4B5C}.Release|x86.ActiveCfg = Release|x86
+		{C753E90D-E6FE-4D36-8654-ADB4AF7B4B5C}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B0A7C82-FDF0-4266-BDD4-88848A36DB3C}
+	EndGlobalSection
+EndGlobal
