@@ -12,8 +12,20 @@ namespace R2
         public float moveAmount;
         public Vector3 rotateDirection;
 
-        public string locomotionId = "locomotion";
-        public string attackStateId = "attackState";
+        [Header("States")]
+        public bool isGrounded;
+
+        [Header("Movement Stats")]
+        public float frontRayOffset = .5f;
+        public float movementSpeed = 2;
+        public float adaptSpeed = 10;
+
+        [HideInInspector]
+        public LayerMask ignoreForGroundCheck;
+        [HideInInspector]
+        public const string locomotionId = "locomotion";
+        [HideInInspector]
+        public const string attackStateId = "attackState";
 
         public override void Init()
         {
@@ -22,6 +34,8 @@ namespace R2
             State locomotion = new State(
                 new List<StateAction>() //Fixed Update
                 {
+                    new InputManager(this),
+                    new MovePlayerCharacter(this)
                 },
                 new List<StateAction>() //Update
                 {
@@ -46,15 +60,20 @@ namespace R2
             RegisterState(attackStateId, attackState);
 
             ChangeState(locomotionId);
+
+            ignoreForGroundCheck = ~(1<<9 | 1 << 10);
         }
 
         private void FixedUpdate()
         {
-            new InputManager(this);
+            delta = Time.fixedDeltaTime;
+
+            base.FixedTick();
         }
 
         private void Update()
         {
+            delta = Time.deltaTime;
             base.Tick();
         }
 

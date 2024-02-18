@@ -14,6 +14,7 @@ namespace R2
         public float vertical;
         public float horizontal;
         public bool lockOn;
+        public float delta;
 
         public override void Init()
         {
