@@ -7,7 +7,7 @@ namespace R2
     public abstract class StateManager : MonoBehaviour
     {
         State currentState;
-        Dictionary<string, State> allStates = new Dictionary<string, State>
+        Dictionary<string, State> allStates = new Dictionary<string, State>();
 
         private void Start()
         {
@@ -41,7 +41,13 @@ namespace R2
 
         public void ChangeState(string targetId)
         {
-
+            if (currentState !=null)
+            {
+                //Run on exit of currentState
+            }
+            State targetState = GetState(targetId);
+            //run on enter action
+            currentState = targetState;
         }
 
         State GetState(string targetId)

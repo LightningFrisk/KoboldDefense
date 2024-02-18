@@ -12,6 +12,13 @@ namespace R2
         List<StateAction> updateActions = new List<StateAction>();
         List<StateAction> lateUpdateActions = new List<StateAction>();
 
+        public State(List<StateAction> fixedUpdateActions, List<StateAction> updateActions, List<StateAction> lateUpdateActions)
+        {
+            this.fixedUpdateActions = fixedUpdateActions;
+            this.updateActions = updateActions;
+            this.lateUpdateActions = lateUpdateActions;
+        }
+
         public void FixedTick() {
             ExecuteListofActions(fixedUpdateActions);
         }

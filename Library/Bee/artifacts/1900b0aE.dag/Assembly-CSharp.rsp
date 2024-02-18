@@ -346,6 +346,9 @@
 "Assets/_Scripts/FSM/State.cs"
 "Assets/_Scripts/FSM/StateAction.cs"
 "Assets/_Scripts/FSM/StateManager.cs"
+"Assets/_Scripts/StateActions/InputManager.cs"
+"Assets/_Scripts/StateManagers/CharacterStateManager.cs"
+"Assets/_Scripts/StateManagers/PlayerStateManager.cs"
 -langversion:9.0
 
 /deterministic
