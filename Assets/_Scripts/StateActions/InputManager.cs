@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using UnityEditor;
 using UnityEngine;
 
 namespace R2
@@ -50,10 +52,10 @@ namespace R2
             b_Input = Input.GetButton("B");
             y_Input = Input.GetButtonDown("Y");
             x_Input = Input.GetButton("X");
-            // leftArrow = Input.GetButton("Left");
-            // rightArrow = Input.GetButton("Right");
-            // upArrow = Input.GetButton("Up");
-            // downArrow = Input.GetButton("Down");
+            leftArrow = Input.GetButton("Left");
+            rightArrow = Input.GetButton("Right");
+            upArrow = Input.GetButton("Up");
+            downArrow = Input.GetButton("Down");
             currentState.mouseX = Input.GetAxis("Mouse X");
             currentState.mouseY = Input.GetAxis("Mouse Y");
 
@@ -85,6 +87,9 @@ namespace R2
 
             return isAttacking;
         }
+
+
+
     }
 }
 

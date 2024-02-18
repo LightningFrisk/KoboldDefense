@@ -12,6 +12,26 @@ namespace R2
         {
             states = playerStateManager;
         }
+
+        void HandleRotation(){
+            float horizontal = states.horizontal;
+            float vertical = states.vertical;
+
+            Vector3 targetDir = Camera.value.forward * vertical;
+            targetDir += Camera.right * horizontal;
+            targetDir.Normalize();
+
+            targetDir.y=0;
+            if(targetDir == Vector3.zero)
+                targetDir = states.transform.forward;
+
+            Quaternion tr = Quaternion.LookRotation(targetDir);
+            Quaternion targetRotation = Quaternion.Slerp(
+                states.mTransform.rotation, tr,
+                states.delta * states.moveAmount * states.rotationSpeed);
+
+            states.mTransform.rotation = targetRotation;
+        }
         public override bool Execute()
         {
             float frontY = 0;
@@ -54,6 +74,7 @@ namespace R2
                         states.rigidbody.drag = 4;
                     }
                 }
+                HandleRotation();
             } else {
                 //states.collider.height=colStartHeight;
                 states.rigidbody.isKinematic = false;
@@ -62,7 +83,10 @@ namespace R2
             }
 
             Debug.DrawRay((states.mTransform.position + Vector3.up * .2f), targetVelocity, Color.green, .01f, false);
-            states.rigidbody.velocity = Vector3.Lerp(currentVelocity, targetVelocity, states.delta * states.adaptSpeed);
+
+            states.rigidbody.velocity = targetVelocity;
+
+            //states.rigidbody.velocity = Vector3.Lerp(currentVelocity, targetVelocity, states.delta * states.adaptSpeed);
 
             return false;
         }
