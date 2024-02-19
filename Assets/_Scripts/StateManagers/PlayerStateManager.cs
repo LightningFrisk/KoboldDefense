@@ -20,7 +20,7 @@ namespace R2
 
         [Header("Movement Stats")]
         public float frontRayOffset = .5f;
-        public float movementSpeed = 2;
+        public float movementSpeed = 10;
         public float adaptSpeed = 10;
         public float rotationSpeed = 10;
 

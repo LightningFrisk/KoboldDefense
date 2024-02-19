@@ -17,8 +17,8 @@ namespace R2
             float horizontal = states.horizontal;
             float vertical = states.vertical;
 
-            Vector3 targetDir = Camera.value.forward * vertical;
-            targetDir += Camera.right * horizontal;
+            Vector3 targetDir = states.camera.transform.forward * vertical;
+            targetDir += states.camera.transform.right * horizontal;
             targetDir.Normalize();
 
             targetDir.y=0;

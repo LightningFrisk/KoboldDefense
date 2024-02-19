@@ -7,6 +7,7 @@ namespace R2
     public abstract class CharacterStateManager : StateManager
     {
         [Header("References")]
+        
         public Animator anim;
         public new Rigidbody rigidbody;
 
@@ -20,6 +21,7 @@ namespace R2
         {
             anim = GetComponentInChildren<Animator>();
             rigidbody = GetComponentInChildren<Rigidbody>();
+            anim.applyRootMotion = false;
         }
 
         public void PlayTargetAnimation(string targetAnim)
