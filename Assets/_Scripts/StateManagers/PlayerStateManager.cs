@@ -38,11 +38,12 @@ namespace R2
             State locomotion = new State(
                 new List<StateAction>() //Fixed Update
                 {
-                    new InputManager(this),
+                    
                     new MovePlayerCharacter(this)
                 },
                 new List<StateAction>() //Update
                 {
+                    new InputManager(this),
                 },
                 new List<StateAction>() //Late Update
                 {

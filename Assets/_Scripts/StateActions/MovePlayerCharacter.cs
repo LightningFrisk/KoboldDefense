@@ -32,6 +32,19 @@ namespace R2
 
             states.mTransform.rotation = targetRotation;
         }
+
+        void HandleAnimations(){
+            if (states.isGrounded){
+                float amount = states.moveAmount;
+                float forward = 0;
+                if (amount > 0 && amount < .5f)
+                    forward = .5f;
+                else if (amount > .5f)
+                    forward = 1;
+
+                states.anim.SetFloat("forward", forward, .2f, states.delta);
+            }
+        }
         public override bool Execute()
         {
             float frontY = 0;
@@ -81,6 +94,8 @@ namespace R2
                 states.rigidbody.drag = 0;
                 targetVelocity.y = currentVelocity.y;
             }
+
+            HandleAnimations();
 
             Debug.DrawRay((states.mTransform.position + Vector3.up * .2f), targetVelocity, Color.green, .01f, false);
 
